@@ -1,7 +1,7 @@
 import { useAddress, useContract } from "@thirdweb-dev/react";
 import Head from "next/head";
 import Header from "./Header";
-import Admin from "./Admin";
+import TendererDashboard from "./TendererDashboard";
 
 
 
@@ -14,7 +14,7 @@ export default function Home() {
       <meta name="description" content="This is a E-Tendering dapp" />
     </Head>
     <Header />
-    <Admin/>
+    <TendererDashboard />
     
   
     </div>
