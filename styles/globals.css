@@ -2,31 +2,181 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.navbar-container{
+  background-color: #000036;
+  border-bottom: 1px solid #ffff;
+  border-top: 1px solid #ffff;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.navbar{
+  padding: 25px;
 }
 
-input[type="text"] {
-  color: black;
+.navbar a{
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
 }
 
+a:hover{
+  color: yellow !important;
+  font-weight: bolder !important;
+
+}
+
+
+.navbar-toggler,.navbar-toggler-icon{
+  background-color: #e3f2fd !important;
+}
+
+.profile{
+  font-size: 20px;
+}
+
+.login{
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+
+/* Home page */
+
+.hero-container{
+  background-color: #101046;
+}
+
+.hero-container img{
+  width: 450px;
+  margin-top: 30px;
+  height: 100%;
+}
+
+.heading{
+  font-size: 68px;
+  line-height: 90px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.explore{
+  width: 40%;
+  padding: 5px 20px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 25px;
+}
+
+.p-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.process-step{
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+}
+
+
+.p-card img{
+  width: 60px !important;
+  height: 60px;
+}
+
+.p-card h4{
+  font-size: 22px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.p-card p{
+  font-size: 17px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.process-container{
+ padding: 60px 0px;
+}
+
+.hero-container-1{
+background-color: #000036;
+}
+
+.btn{
+  background-color: #000036 !important;
+  color: #FFF !important;
+}
+
+.bid-product{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: 1px solid #35348c !important;
+  padding: 5px 20px !important;
+  border-radius: 10px !important;
+  gap: 30px;
+  background-color: #b0e1ff;
+}
+
+.card1-title h3{
+  font-size: 20px !important;
+  color: #000036 !important;
+  font-weight: 700 !important;
+}
+
+.card1-content{
+  gap: 30px;
+  border-top: 1px solid #fff;
+}
+
+.card1-content h2{
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000036 !important;;
+}
+
+
+
+.card1-content p{
+  color: #03d6f9;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.upcoming-head{
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-floating{
+  border-radius: 50%;
+}
+
+.img img{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* testemonials  */
+
+.hero-container-2{
+  background-color: #101046;
+}
+
+.auction-container{
+  background-color: #000036;
+}
