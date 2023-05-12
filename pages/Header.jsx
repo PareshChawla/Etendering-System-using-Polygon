@@ -46,7 +46,7 @@ const Header = () => {
               <a class="nav-link" href="/admin">CREATE TENDER</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/GetTenders">Tenders</a>
+              <a class="nav-link" href="/GetTenders">TENDERS</a>
             </li>
 
             <li class="nav-item">

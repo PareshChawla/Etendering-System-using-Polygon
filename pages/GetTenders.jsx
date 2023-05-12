@@ -36,7 +36,8 @@ export default function ViewTenders() {
   }, [data, isLoading]);
 
   return (
-    <div className="bg-gray-400 min-h-screen">
+    <>
+      <div className="bg-gray-400 min-h-screen">
       <div className="bg-gray-100 bg-center rounded-lg mt-30 ml-20 mr-20  p-4">
         <h2 className="text-xl text-gray-800 font-semibold mb-2">All Tenders</h2>
         <ul className="list-disc list-inside">
@@ -45,9 +46,9 @@ export default function ViewTenders() {
               {tender.id}: {tender.tenderData.description}
             </li>
           ))}
-        </div>
+          </ul>
       </div>
-    </div>
+      </div>
     </>
   );
 }
