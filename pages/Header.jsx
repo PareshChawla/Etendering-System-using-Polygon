@@ -52,7 +52,11 @@ const Header = () => {
             </li>
 
             <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link" href="/Getbids">ALL BIDS </a>
+=======
+              <a class="nav-link" href="/GetTenders">TENDERS</a>
+>>>>>>> 18560a73242984a677bacf16eca66a4f353126d3
             </li>
 
             <li class="nav-item">

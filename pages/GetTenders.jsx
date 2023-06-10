@@ -40,8 +40,8 @@ export default function ViewTenders() {
   }, [data, isLoading]);
 
   return (
-
     <>
+<<<<<<< HEAD
     <Header />
 
     {
@@ -54,62 +54,21 @@ export default function ViewTenders() {
 
 
 
+=======
+      <div className="bg-gray-400 min-h-screen">
+      <div className="bg-gray-100 bg-center rounded-lg mt-30 ml-20 mr-20  p-4">
+        <h2 className="text-xl text-gray-800 font-semibold mb-2">All Tenders</h2>
+        <ul className="list-disc list-inside">
+>>>>>>> 18560a73242984a677bacf16eca66a4f353126d3
           {tenders.map((tender) => (
-
-            <div className="col-md-12 bid-product">
-
-              <div className="img">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrpiF0_09x9tl-QZkA5_Eaiz5NACUsec1NoA&usqp=CAU" alt="" />
-              </div>
-
-              <div className="product-content">
-                <div className="card1-title">
-                  <h3
-                  >{tender.tenderData.description}
-                  </h3>
-                </div>
-
-                <div className="card1-content">
-                  <div className="price">
-                    <h2>Expiry : 6 Days</h2>
-                  </div>
-
-                  <div className="auction-id">
-                    <h2>Auction ID: {tender.tenderData.tenderer.substr(0,15)+"..."}</h2>
-                  </div>
-
-                </div>
-
-                <div className="card1-bottom">
-                  <p style={{ color: "#fff", fontSize: "20px" }}>Ends In : <span style={{ color: "red", fontSize: "18px" }}>19:20:30</span></p>
-                </div>
-
-                <button className="btn  w-100" onClick={() => handleNavigate(tender.id,tender.tenderData.description)}>Bid Now</button>
-
-              </div>
-
-            </div>
-
-
-            // <div key={tender.id} className="bg-white rounded-lg overflow-hidden shadow-md">
-            //   <div className="px-6 py-4">
-            //     <div className="font-bold text-xl mb-2">{tender.tenderData.title}</div>
-            //     <p className="text-gray-700 text-base">{tender.tenderData.description}</p>
-            //   </div>
-            //   <div className="px-6 py-4">
-            //     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-            //       {tender.tenderData.category}
-            //     </span>
-            //     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-            //       {tender.tenderData.date}
-            //     </span>
-            //   </div>
-            // </div>
-
-
+            <li className="text-lg text-gray-700 mb-1" key={tender.id}>
+              {tender.id}: {tender.tenderData.description}
+            </li>
           ))}
-        </div>
+          </ul>
       </div>
+      </div>
+<<<<<<< HEAD
     </div>
     
     }
@@ -118,6 +77,10 @@ export default function ViewTenders() {
    
 
 
+=======
+>>>>>>> 18560a73242984a677bacf16eca66a4f353126d3
     </>
   );
 }
+
+
