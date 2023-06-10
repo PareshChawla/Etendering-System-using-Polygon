@@ -53,7 +53,7 @@ export default function MakeBid() {
 
         <div className="p-6" >
             <h2 className="text-2xl font-bold mb-6">Make Bid</h2>
-            <form onSubmit={() => handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label htmlFor="tenderId" className="block text-gray-700 font-bold mb-2">
                         Tender ID

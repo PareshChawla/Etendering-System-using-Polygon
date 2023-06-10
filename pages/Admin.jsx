@@ -2,27 +2,53 @@ import { useState } from "react";
 import { useContract, useContractWrite } from "@thirdweb-dev/react";
 import Header from './Header'
 import Footer from './Footer'
+import _ from 'lodash'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function CreateTenderForm() {
   const { contract } = useContract("0xcDEd284E807145149d07bCde1579af9564E0B1A2");
   const { mutateAsync: createTender, isLoading } = useContractWrite(contract, "createTender");
+
+  let message;
+  const notifyA = () => toast.success(message);
+  const notifyB = () => toast.error(message);
+
 
   const [description, setDescription] = useState("");
   const [expiry, setExpiry] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
+    if(_.isEmpty(description)){
+      message = "Description cannot be empty"
+      return notifyB(message)
+    }
+
+
+    if(_.isEmpty(expiry)){
+      message = "Expiry cannot be empty"
+      return notifyB(message)
+    }
 
     try {
       const data = await createTender({ args: [description, expiry] });
       console.info("contract call successs", data);
+      message = "Successfully created new tender"
+      setDescription("");
+      setExpiry("");
+      return  notifyA(message)
     } catch (err) {
+      setDescription("");
+      setExpiry("");
       console.error("contract call failure", err);
     }
 
     // Clear form fields after submitting
-    setDescription("");
-    setExpiry("");
+
   };
 
   return (

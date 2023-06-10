@@ -7,6 +7,8 @@ import { HiOutlineLogout } from 'react-icons/hi'
 
 const Header = () => {
 
+  const mode = "";
+
 
 
   // const navigate = useNavigate();
@@ -40,17 +42,21 @@ const Header = () => {
         <div class=" navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">HOME</a>
+              <a class="nav-link" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin">CREATE TENDER</a>
+              <a class="nav-link" href="/admin">{mode == "user" ? " " :"CREATE TENDER"} </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/GetTenders">Tenders</a>
+              <a class="nav-link" href="/GetTenders">TENDERS</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACT US</a>
+              <a class="nav-link" href="/Getbids">ALL BIDS </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/Getwinningbid">WINNER</a>
             </li>
 
             <li class="nav-item ml-3">

@@ -3,13 +3,28 @@ import { useContract, useContractWrite } from '@thirdweb-dev/react';
 import Header from './Header'
 import Footer from './Footer'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function CloseTender() {
+
+    
+    let message;
+    const notifyA = () => toast.success(message);
+    const notifyB = () => toast.error(message);
+
     const { contract } = useContract('0xcDEd284E807145149d07bCde1579af9564E0B1A2');
     const { mutateAsync: closeTender, isLoading } = useContractWrite(contract, 'closeTender');
     const [tenderId, setTenderId] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!tenderId){
+            message = "Tender id cannot be empty"
+            return notifyB(message)
+        }
+        
         try {
             const data = await closeTender({ args: [tenderId] });
             console.info('contract call success', data);
@@ -20,13 +35,13 @@ export default function CloseTender() {
     };
 
     return (
+
         <>
             <Header />
-            <div className='my-5 mb-5'>
+            <div>
+                <h2 className="text-2xl font-bold mb-5 text-center my-5 ">Close Tender</h2>
+                <form onSubmit={handleSubmit}>
 
-
-                <h2 className="text-2xl font-bold mb-4 text-center">Close Tender</h2>
-                <form onSubmit={() => handleSubmit}>
                     <div className="flex items-center mb-4 " style={{marginLeft:"450px"}}>
                         {/* <label htmlFor="tenderId" className="w-100">
                             Tender ID:
@@ -41,19 +56,20 @@ export default function CloseTender() {
                         />
                     </div>
 
-                    <button style={{marginLeft:"600px"}}
+
+                    <button
+                        style={{marginLeft:"600px"}}
                         type="submit"
-                        disabled={!tenderId}
-                        className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-700"
+                        className="bg-blue-500 mb-5 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-700"
                     >
-                        {isLoading ? 'Closing...' : 'Close Tender'}
+                       Close Tender
                     </button>
-
                 </form>
-
             </div>
 
-            <Footer />
+            <Footer className="my-5" />
         </>
+
+
     );
 }

@@ -4,12 +4,14 @@ import Card from './Card'
 import Header from './Header'
 import { useHiu} from "react-router-dom";
 import { useRouter } from "next/router";
+import Loader from './Loader';
 
 export default function ViewTenders() {
 
   const router = useRouter();
 
   const [tenders, setTenders] = useState([]);
+  const [loader,setLoader] = useState(false)
   const { contract } = useContract("0xcDEd284E807145149d07bCde1579af9564E0B1A2");
   const { data, isLoading } = useContractRead(contract, "viewTenders", []);
   console.log(tenders);
@@ -23,6 +25,7 @@ export default function ViewTenders() {
   }
 
   useEffect(() => {
+    setLoader(true)
     if (!isLoading && data) {
       const tenderIds = Object.keys(data);
       const tenderList = tenderIds.map((id) => {
@@ -31,6 +34,7 @@ export default function ViewTenders() {
           tenderData: data[id],
         };
       });
+      setLoader(false)
       setTenders(tenderList);
     }
   }, [data, isLoading]);
@@ -39,7 +43,9 @@ export default function ViewTenders() {
 
     <>
     <Header />
-    <div className=" min-h-screen">
+
+    {
+      loader ? <Loader /> :  <div className=" min-h-screen">
       <div className=" bg-center rounded-lg mt-30 mx-20 p-4">
         <h2 className="text-xl  font-semibold mb-2">All Tenders</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -105,6 +111,13 @@ export default function ViewTenders() {
         </div>
       </div>
     </div>
+    
+    }
+    
+
+   
+
+
     </>
   );
 }
